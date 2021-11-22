@@ -13,7 +13,7 @@ We use `this` and `that` for `these` and `those`.
 In this project we use <\br>
 * **This**  <br/>
 * _That_
-> These
+> These <br/>
 > Those
 or
 ```python
