@@ -11,7 +11,7 @@ This is a project for team HCMUTCSE in Kambria Hackthon II, 2021. In this projec
 ### Introduction
 We use `this` and `that` for `these` and `those`.
 In this project we use <\br>
-* **This** <\br>
+* **This**  <br/>
 * _That_
 > These
 > Those
