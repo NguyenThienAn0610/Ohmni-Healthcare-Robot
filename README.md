@@ -61,6 +61,11 @@ Clone down this repository. You will need node and npm installed globally on you
 * MQTT Broker, e.g. Adafruit
 
 ### Web-App Installation
+Change directory to `web`.
+  ```sh
+  cd web
+  ```
+
 If you are running the project for the first time, install all the dependencies
   ```sh
   npm install
