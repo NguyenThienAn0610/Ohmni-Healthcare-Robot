@@ -11,7 +11,7 @@
   <p align="center">
     This is a project for team HCMUTCSE in Kambria Hackthon II, 2021.
     <br />
-    <a href="https://omni-robot.web.app/"><strong>View Demo »</strong></a>
+    <a href="https://omni-robot.web.app/" target="_blank"><strong>View Demo »</strong></a>
     <br />
   </p>
 </div>
