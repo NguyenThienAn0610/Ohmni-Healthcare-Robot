@@ -126,8 +126,17 @@ If there are still problems regarding the pycoral library, check out the [pycora
 It is extremely important to plug in your Google Coral USB accelerator into the robot prior running the program.
 
 ### Run the application
-After cloning the Github to your robot's Linux environment, run it by executing the <b>ohmni.sh</b> file. The application should run.<br>
-However, it is needed to capture pictures from the camera for the application to process and work correctly. Hence, create another terminal, this time in the android environment of the robot, initiate the <b>OpenCamera</b> application to begin capturing:
+After cloning the Github to your robot's Linux environment, run it by executing the <b>ohmni.sh</b> file. It shouldn't be possible for the application to run correctly since there are 2 things also required:<br>
+#### Change the MQTT information
+Filling all of these 3 should be enough to run the program and subscribe to a feed.
+```python
+ADAFRUIT_IO_KEY = ''
+ADAFRUIT_IO_USERNAME = ''
+FEED_ID = ''
+```
+
+#### Enables the camera application
+It is needed to capture pictures from the camera for the application to process and work correctly. Hence, create another terminal, this time in the android environment of the robot, initiate the <b>OpenCamera</b> application to begin capturing:
 ```shell
 monkey -p net.sourceforge.opencamera -c android.intent.category.LAUNCHER 1
 ```
