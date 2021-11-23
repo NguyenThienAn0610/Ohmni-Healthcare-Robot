@@ -66,12 +66,12 @@ const Connection = ({ connect, disconnect, connectBtn }) => {
 						<Input />
 					</Form.Item>
 				</Col>
-				<Col span={8}>
+				<Col span={12}>
 					<Form.Item label="Username" name="username">
 						<Input />
 					</Form.Item>
 				</Col>
-				<Col span={8}>
+				<Col span={12}>
 					<Form.Item label="Password" name="password">
 						<Input />
 					</Form.Item>

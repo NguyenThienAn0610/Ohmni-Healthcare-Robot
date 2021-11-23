@@ -1,4 +1,4 @@
-import { Modal } from "antd";
+import { Card, Col, Form, Input, Modal, Row, Select } from "antd";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -45,18 +45,17 @@ function MainForm({
 	const [retreat, setRetreat] = useState(false);
 	const [loading, setLoading] = useState(false);
 
+	const [form] = Form.useForm();
+
 	/**
 	 *  MQTT Connection
 	 * */
 
 	useEffect(() => {
 		if (connectStatus === "Connected") {
-			mqttSub({
-				topic: "thanhdanh27600/feeds/esp32",
-				qos: 0,
-			});
+			mqttSub(form.getFieldsValue());
 		}
-	}, [connectStatus, mqttSub]);
+	}, [connectStatus, mqttSub, form]);
 
 	const nextStep = (numStep) => {
 		const numStepChanged = numStep ? step + numStep : step + 1;
@@ -182,6 +181,28 @@ function MainForm({
 				onCancel={handleCancel}
 				footer={[]}
 			>
+				<Card title="Topic To Subscribe" style={{ marginBottom: "10px" }}>
+					<Form
+						layout="vertical"
+						name="basic"
+						form={form}
+						initialValues={{ topic: "thanhdanh27600/feeds/esp32", qos: 0 }}
+					>
+						<Row gutter={20}>
+							<Col span={20}>
+								<Form.Item label="Topic" name="topic">
+									<Input />
+								</Form.Item>
+							</Col>
+
+							<Col span={4}>
+								<Form.Item label="QoS" name="qos">
+									<Select options={qosOption} />
+								</Form.Item>
+							</Col>
+						</Row>
+					</Form>
+				</Card>
 				<Connection
 					connect={mqttConnect}
 					disconnect={mqttDisconnect}
@@ -223,12 +244,11 @@ function MainForm({
 					MQTT Test
 				</button>
 			</Link>
-			)
 			<div className="container-fluid">
 				<div className="row justify-content-center">
 					<div className="col-11 col-sm-9 col-md-8 col-lg-7 col-xl-6 text-center p-0 mt-3 mb-2">
 						<div className="card px-0 pt-4 pb-0 mt-3 mb-5 pb-5">
-							<h1 id="heading">Welcome to Omni Healthcare System</h1>
+							<h1 id="heading">Welcome to Ohmni Healthcare System</h1>
 							<p>Please follow the instructions</p>
 							<form
 								id="msform"

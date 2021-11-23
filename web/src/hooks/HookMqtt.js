@@ -2,7 +2,7 @@ import mqtt from "mqtt";
 import { createContext, useEffect, useState } from "react";
 
 export const QosOption = createContext([]);
-const qosOption = [
+export const qosOption = [
 	{
 		label: "0",
 		value: 0,
@@ -102,19 +102,6 @@ const useMqtt = () => {
 		mqttUnSub,
 		mqttPublish,
 	};
-	// (
-	// 	<WrappedComponent
-	// 		qosOption={qosOption}
-	// 		connectStatus={connectStatus}
-	// 		isSubed={isSubed}
-	// 		payload={payload}
-	// 		mqttConnect={mqttConnect}
-	// 		mqttDisconnect={mqttDisconnect}
-	// 		mqttSub={mqttSub}
-	// 		mqttUnSub={mqttUnSub}
-	// 		mqttPublish={mqttPublish}
-	// 	/>
-	// )
 };
 
 export default useMqtt;
