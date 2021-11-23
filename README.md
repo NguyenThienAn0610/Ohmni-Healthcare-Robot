@@ -118,10 +118,12 @@ At the very bottom, there are the status of the MQTT Client and the current accu
 This part is dedicated to the code used to run and command the behaviours of the Ohmni robot. For software, we use `python3` and the `pycoral` library. With hardware, we utilized the [Ohmni® Telepresence Robot](https://ohmnilabs.com/products/ohmni-telepresence-robot/) as well as the [Google Coral USB accelerator](https://coral.ai/products/accelerator/) for tensor support.<br>
 
 ### Setup
-Install `pycoral` is required
+Installation of `pycoral` is required and you can run this for a quick pip install:
 ```shell
 python3 -m pip install --extra-index-url https://google-coral.github.io/py-repo/ pycoral~=2.0
 ```
+If there are still problems regarding the pycoral library, check out the [pycoral installation guide](https://coral.ai/software/#coral-python-api) for further explanation. <b>Note</b>: We do not use the `edgetpu` library because it is deprecated and will be hard to reuse for future projects so do not install it and its following libraries.<br>
+It is extremely important to plug in your Google Coral USB accelerator into the robot prior running the program.
 
 ### Run the application
 After cloning the Github to your robot's Linux environment, run it by executing the <b>ohmni.sh</b> file. The application should run.<br>
