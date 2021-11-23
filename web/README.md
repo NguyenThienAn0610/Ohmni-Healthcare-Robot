@@ -52,7 +52,7 @@ When they're all set run the project locally
 
 ### Web-App Usage & Test
 
-When you first access the page, you need to provide the MQTT config: host, port, clientid, username, and password (if any). There is a pre-filled example in the Demo so you can quickly use it to test.
+When you first access the page, you need to provide the MQTT config: input the topic name to subscribe, host, port, clientid, username, and password (if any). There is a pre-filled example in the Demo so you can quickly use it to test.
 
 Next, choose the medical check-in type, there are two options:
 

@@ -101,7 +101,7 @@ When they're all set run the project locally
 
 ### Web-App Usage & Test
 
-When you first access the page, you need to provide the MQTT config: host, port, clientid, username, and password (if any). There is a pre-filled example in the Demo so you can quickly use it to test.
+When you first access the page, you need to provide the MQTT config: input the topic name to subscribe, host, port, clientid, username, and password (if any). There is a pre-filled example in the Demo so you can quickly use it to test.
 
 Next, choose the medical check-in type, there are two options:
 
@@ -115,20 +115,28 @@ At the very bottom, there are the status of the MQTT Client and the current accu
 ## Ohmni Robot
 
 ### Introduction
+
 This part is dedicated to the code used to run and command the behaviours of the Ohmni robot. For software, we use `python3` and the `pycoral` library. With hardware, we utilized the [Ohmni® Telepresence Robot](https://ohmnilabs.com/products/ohmni-telepresence-robot/) as well as the [Google Coral USB accelerator](https://coral.ai/products/accelerator/) for tensor support.<br>
 
 ### Setup
+
 Installation of `pycoral` is required and you can run this for a quick pip install:
+
 ```shell
 python3 -m pip install --extra-index-url https://google-coral.github.io/py-repo/ pycoral~=2.0
 ```
+
 If there are still problems regarding the pycoral library, check out the [pycoral installation guide](https://coral.ai/software/#coral-python-api) for further explanation. <b>Note</b>: We do not use the `edgetpu` library because it is deprecated and will be hard to reuse for future projects so do not install it and its following libraries.<br>
 It is extremely important to plug in your Google Coral USB accelerator into the robot prior running the program.
 
 ### Run the application
+
 After cloning the Github to your robot's Linux environment, run it by executing the <b>ohmni.sh</b> file. It shouldn't be possible for the application to run correctly since there are 2 things also required:<br>
+
 #### Change the MQTT information
+
 Filling all of these 3 should be enough to run the program and subscribe to a feed.
+
 ```python
 ADAFRUIT_IO_KEY = ''
 ADAFRUIT_IO_USERNAME = ''
@@ -136,11 +144,15 @@ FEED_ID = ''
 ```
 
 #### Enables the camera application
+
 It is needed to capture pictures from the camera for the application to process and work correctly. Hence, create another terminal, this time in the android environment of the robot, initiate the <b>OpenCamera</b> application to begin capturing:
+
 ```shell
 monkey -p net.sourceforge.opencamera -c android.intent.category.LAUNCHER 1
 ```
+
 It is possible to stop the <b>OpenCamera</b> application via physical actions or terminal:
+
 ```shell
 input keyevent KEYCODE_HOME
 ```
