@@ -43,8 +43,6 @@
   </ol>
 </details>
 
-#
-
 ## About the project
 
 In this project, we will develop applications on an Ohmni healthcare assistant robot, which helps outpatients in hospitals with registration, thermal measurement, navigation, ...
@@ -114,32 +112,24 @@ In the Register option, fill all the needed information and continue. In the Ret
 
 At the very bottom, there are the status of the MQTT Client and the current accuracy of the robot. There is a button "MQTT Test", link to another page, to explicitly test your connection.
 
-## Robot
+## Ohmni Robot code
 
 ### Introduction
-
-We use `this` and `that` for `these` and `those`.
-In this project, we use <\br>
-
-- **This** <br/>
-- _That_
-  > These <br/>
-  > Those
-  > or
-
-```python
-print("This that these those")
-```
-
-and
-First Header | Second Header
------------- | -------------
-Content cell 1 | [GitHub](http://github.com)
-Content column 1 | Content column 2
+This part is dedicated to the code used to run and command the behaviours of the Ohmni robot. For software, we use `python3` and the `pycoral` library. With hardware, we utilized the [Ohmni® Telepresence Robot](https://ohmnilabs.com/products/ohmni-telepresence-robot/) as well as the [Google Coral USB accelerator](https://coral.ai/products/accelerator/) for tensor support.<br>
 
 ### Setup
+Install `pycoral` is required
+```shell
+python3 -m pip install --extra-index-url https://google-coral.github.io/py-repo/ pycoral~=2.0
+```
 
-### Demonstration
-
-
-
+### Run the application
+After cloning the Github to your robot's Linux environment, run it by executing the <b>ohmni.sh</b> file. The application should run.<br>
+However, it is needed to capture pictures from the camera for the application to process and work correctly. Hence, create another terminal, this time in the android environment of the robot, initiate the <b>OpenCamera</b> application to begin capturing:
+```shell
+monkey -p net.sourceforge.opencamera -c android.intent.category.LAUNCHER 1
+```
+It is possible to stop the <b>OpenCamera</b> application via physical actions or terminal:
+```shell
+input keyevent KEYCODE_HOME
+```
