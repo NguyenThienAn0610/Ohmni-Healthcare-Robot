@@ -36,9 +36,9 @@
     </li>
     <li><a href="#robot">Usage</a>
      <ul>
-        <li><a href="#web-prerequisites">Prerequisites</a></li>
-        <li><a href="#web-installation">Installation</a></li>
-        <li><a href="#web-test">Usage & Test</a></li>
+        <li><a href="#introduction">Ohmni Robot</a></li>
+        <li><a href="#setup">Installation</a></li>
+        <li><a href="#run-the-application">Run The Application</a></li>
       </ul></li>
   </ol>
 </details>
@@ -112,7 +112,7 @@ In the Register option, fill all the needed information and continue. In the Ret
 
 At the very bottom, there are the status of the MQTT Client and the current accuracy of the robot. There is a button "MQTT Test", link to another page, to explicitly test your connection.
 
-## Ohmni Robot code
+## Ohmni Robot
 
 ### Introduction
 This part is dedicated to the code used to run and command the behaviours of the Ohmni robot. For software, we use `python3` and the `pycoral` library. With hardware, we utilized the [Ohmni® Telepresence Robot](https://ohmnilabs.com/products/ohmni-telepresence-robot/) as well as the [Google Coral USB accelerator](https://coral.ai/products/accelerator/) for tensor support.<br>

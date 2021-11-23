@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+## Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This section is for the web application which is deployed to the Ohmni robot via https://app.ohmnilabs.com/my-robots. The following subsections give instructions on setting up the project locally.
 
-## Available Scripts
+### Web-App Prerequisites
 
-In the project directory, you can run:
+Clone down this repository. You will need node and npm installed globally on your machine. You can find the download page at [Nodejs Homepage](https://nodejs.org/en/)
 
-### `yarn start`
+- Make sure your npm is the latest
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  ```sh
+  npm install npm@latest -g
+  ```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- A Firebase project for the web framework, you can create one at [Firebase Homepage](https://firebase.google.com/)
 
-### `yarn test`
+- MQTT Broker, e.g. Adafruit
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Web-App Installation
 
-### `yarn build`
+Change directory to `web`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+cd web
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you are running the project for the first time, install all the dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm install
+```
 
-### `yarn eject`
+For the Firebase project, register your web app with steps follow [Firebase register app](https://firebase.google.com/docs/web/setup#register-app). For the Firebase config variable, go to Project Setting, under Your Apps section.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Prepare your environment by renaming the .env.example to .env with your variables
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Variable                          | Value                          |
+| --------------------------------- | ------------------------------ |
+| REACT_APP_FIREBASE_API_KEY        | apiKey                         |
+| REACT_APP_FIREBASE_AUTH_DOMAIN    | authDomain                     |
+| REACT_APP_FIREBASE_PROJECT_ID     | projectId                      |
+| REACT_APP_FIREBASE_STORAGE_BUCKET | storageBucket                  |
+| REACT_APP_FIREBASE_MESS_SENDER_ID | messagingSenderId              |
+| REACT_APP_FIREBASE_APP_ID         | appId                          |
+| REACT_APP_MQTT_SECRET             | _\<your MQTT Secret, if any\>_ |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+When they're all set run the project locally
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+ npm start
+```
 
-## Learn More
+### Web-App Usage & Test
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+When you first access the page, you need to provide the MQTT config: host, port, clientid, username, and password (if any). There is a pre-filled example in the Demo so you can quickly use it to test.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Next, choose the medical check-in type, there are two options:
 
-### Code Splitting
+- Register: register for a new patient
+- Retrieve: for the old patient, retrieve medical checkup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+In the Register option, fill all the needed information and continue. In the Retrieve one, input the phone number to retrieve all the previous information.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+At the very bottom, there are the status of the MQTT Client and the current accuracy of the robot. There is a button "MQTT Test", link to another page, to explicitly test your connection.
